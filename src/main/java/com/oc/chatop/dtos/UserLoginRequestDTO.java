@@ -1,13 +1,9 @@
-package com.oc.chatop.dtos.users;
+package com.oc.chatop.dtos;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserLoginDTO {
+public class UserLoginRequestDTO {
     private String email;
     private String password;
 }
