@@ -1,5 +1,5 @@
 package com.oc.chatop.repositories;
-import com.oc.chatop.models.Rental;
+import com.oc.chatop.entities.Rental;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

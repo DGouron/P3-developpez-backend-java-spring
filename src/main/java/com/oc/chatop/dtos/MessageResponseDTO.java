@@ -1,4 +1,12 @@
 package com.oc.chatop.dtos;
 
-public class MessagesResponseDTO {
+import lombok.Data;
+
+@Data
+public class MessageResponseDTO {
+
+    private Integer id;
+    private String message;
+    private Integer userId;
+    private Integer rentalId;
 }

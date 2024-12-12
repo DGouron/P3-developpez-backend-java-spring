@@ -1,4 +1,4 @@
-package com.oc.chatop.models;
+package com.oc.chatop.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

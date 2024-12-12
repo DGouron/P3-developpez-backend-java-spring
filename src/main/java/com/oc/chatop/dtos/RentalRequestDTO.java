@@ -1,16 +1,15 @@
 package com.oc.chatop.dtos;
 
+import lombok.Data;
+import jakarta.validation.constraints.NotNull;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
+@Data
 public class RentalRequestDTO {
+    @NotNull(message = "Owner ID is required")
+    private Integer ownerId;
     private String name;
     private Integer surface;
     private String picture;
     private String description;
-    private Integer ownerId;
     private Double price;
 }

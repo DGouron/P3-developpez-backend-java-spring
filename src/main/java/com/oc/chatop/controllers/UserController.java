@@ -1,7 +1,7 @@
 package com.oc.chatop.controllers;
 
 import com.oc.chatop.dtos.UserResponseDTO;
-import com.oc.chatop.models.User;
+import com.oc.chatop.entities.User;
 import com.oc.chatop.services.UserService;
 import com.oc.chatop.utils.UserMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +19,12 @@ import java.util.Optional;
 public class UserController {
 
   private final UserService userService;
+  private final UserMapper userMapper;
 
   @GetMapping("/{id}")
   public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
     Optional<User> user = userService.findUserById(id);
-    return user.map(u -> ResponseEntity.ok(UserMapper.toUserResponseDTO(u)))
+    return user.map(u -> ResponseEntity.ok(userMapper.toUserResponseDTO(u)))
             .orElseGet(() -> ResponseEntity.notFound().build());
   }
-
 }

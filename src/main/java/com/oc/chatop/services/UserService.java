@@ -1,15 +1,21 @@
 package com.oc.chatop.services;
-import java.util.Optional;
-import com.oc.chatop.models.User;
+
+import com.oc.chatop.entities.CustomUserDetails;
+import com.oc.chatop.entities.User;
 import com.oc.chatop.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
+import java.util.Optional;
 
-    @Autowired
-    private UserRepository userRepository;
+@Service
+@RequiredArgsConstructor
+public class UserService implements UserDetailsService {
+
+    private final UserRepository userRepository;
 
     public User saveUser(User user) {
         return userRepository.save(user);
@@ -21,5 +27,12 @@ public class UserService {
 
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+        return new CustomUserDetails(user);
     }
 }

@@ -1,6 +1,5 @@
-package com.oc.chatop.services;
+package com.oc.chatop.entities;
 
-import com.oc.chatop.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

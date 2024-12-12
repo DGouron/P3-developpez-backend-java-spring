@@ -1,10 +1,10 @@
 package com.oc.chatop.services;
-import com.oc.chatop.models.Rental;
-import com.oc.chatop.models.User;
+import com.oc.chatop.entities.Rental;
 import com.oc.chatop.repositories.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -21,5 +21,9 @@ public class RentalService {
 
     public Rental saveRental(Rental rental) {
         return rentalRepository.save(rental);
+    }
+
+    public Optional<Rental> findRentalById(Long id) {
+        return rentalRepository.findById(id);
     }
 }
