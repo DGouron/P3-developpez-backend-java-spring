@@ -1,4 +1,4 @@
 package com.oc.chatop.utils;
 
-public class RentalMapper {
+public class AuthMapper {
 }
