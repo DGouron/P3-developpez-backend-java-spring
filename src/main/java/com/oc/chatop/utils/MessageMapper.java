@@ -37,10 +37,7 @@ public class MessageMapper {
 
     public MessageResponseDTO toMessageResponseDTO(Message message) {
         MessageResponseDTO messageResponseDTO = new MessageResponseDTO();
-        messageResponseDTO.setId(message.getId());
         messageResponseDTO.setMessage(message.getMessage());
-        messageResponseDTO.setUserId(message.getUser().getId());
-        messageResponseDTO.setRentalId(message.getRental().getId());
         return messageResponseDTO;
     }
 }
